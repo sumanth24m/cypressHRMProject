@@ -1,7 +1,10 @@
+import { Login } from "../components/login"
+
 describe('Demo HRM Login', () => {
-  it('Visit the HRM Application', () => {
-    cy.visit('https://opensource-demo.orangehrmlive.com/')
+
+  it('Test case for Login to HRM', () => {
+    Login()
+    cy.get('h1').should('contain', 'Dashboard')
   })
 
-  it('Login')
 })

@@ -1,11 +1,11 @@
 import { Login } from "../components/login";
 
 describe('Quick links test suite', () => {
-    beforeEach(() => {
+    before(() => {
         Login()
     })
 
-    it.skip('Test case for Quick links', () => {
+    it('Test case for Quick links', () => {
         cy.get('.quickLinkText').contains('Assign Leave').click()
         cy.go('back')
         cy.get('.quickLinkText').contains('Leave List').click()

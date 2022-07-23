@@ -24,10 +24,13 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
+import LoginPage from "../e2e/PageObjects/Login"
+
 
 Cypress.Commands.add('Login', (email, password) => { 
-    cy.visit('https://opensource-demo.orangehrmlive.com/')
-    cy.get('#divUsername').should('exist').type(email)
-    cy.get('#divPassword').should('exist').type(password)
-    cy.get('#btnLogin').should('contain', 'LOGIN').click()
+    const lp = new LoginPage()
+    lp.visit()
+    lp.email(email)
+    lp.password(password)
+    lp.submitForm()
 })

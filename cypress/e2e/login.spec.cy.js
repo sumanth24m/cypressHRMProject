@@ -1,7 +1,5 @@
-import LoginPage from "./PageObjects/Login";
-
 let jsonData;
-describe('Demo HRM Login', () => {
+describe('Login Test Suite', () => {
 
   before(() => {
     cy.fixture('loginData').then((data) => {
@@ -9,16 +7,10 @@ describe('Demo HRM Login', () => {
     })
   });
 
-  it('Test case for Login to HRM', () => {
-    const lp = new LoginPage()
-    lp.visit()
-    lp.email(jsonData.email)
-    lp.password(jsonData.password)
-    lp.submitForm()
-
-    // This commond is from commonds.js
-    // cy.Login(jsonData.email, jsonData.password)
+  it('Test case for Login', () => {
     
+    // This custom commond is from commands.js
+    cy.Login(jsonData.email, jsonData.password)
     cy.get('h1').should('contain', 'Dashboard')
   })
 
